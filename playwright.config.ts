@@ -1,0 +1,2 @@
+import { defineConfig, devices } from "@playwright/test"
+export default defineConfig({ testDir: "./tests/e2e", fullyParallel: false, workers: 1, retries: process.env.CI ? 2 : 0, reporter: "html", use: { baseURL: "http://localhost:3011", trace: "on-first-retry" }, webServer: { command: "pnpm dev --port 3011", url: "http://localhost:3011", reuseExistingServer: false, env: { NEXTAUTH_URL: "http://localhost:3011" } }, projects: [{ name: "desktop-chromium", use: { ...devices["Desktop Chrome"] } }, { name: "mobile-chromium", use: { ...devices["Pixel 7"] } }] })

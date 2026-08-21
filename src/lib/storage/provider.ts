@@ -1,0 +1,3 @@
+export type StoredObject = { url: string; key: string; contentType: string; size: number }
+export interface StorageProvider { put(key: string, bytes: Uint8Array, contentType: string): Promise<StoredObject>; delete(key: string): Promise<void> }
+export class LocalStorageProvider implements StorageProvider { async put(key: string, bytes: Uint8Array, contentType: string) { if (!contentType.startsWith("image/") || bytes.byteLength > 8_000_000) throw new Error("INVALID_UPLOAD"); return { key, url: `/uploads/${key}`, contentType, size: bytes.byteLength } } async delete() { return Promise.resolve() } }

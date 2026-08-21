@@ -1,0 +1,3 @@
+"use client"
+import { Button } from "@/components/ui/button"
+export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) { return <div className="mx-auto flex min-h-[80svh] max-w-3xl flex-col items-center justify-center px-5 pb-20 pt-32 text-center"><p className="eyebrow text-destructive">Ada benang yang terputus</p><h1 className="display mt-4 text-7xl">Kami sedang merapikannya.</h1><p className="mt-6 text-muted-foreground">Coba muat ulang bagian ini. Tas belanja Anda tetap tersimpan di perangkat.</p><Button className="mt-8 min-h-12" size="lg" onClick={reset}>Coba lagi</Button></div> }

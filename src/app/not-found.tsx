@@ -1,0 +1,3 @@
+import Link from "next/link"
+import { buttonVariants } from "@/components/ui/button"
+export default function NotFound() { return <div className="mx-auto flex min-h-[80svh] max-w-3xl flex-col items-center justify-center px-5 pb-20 pt-32 text-center"><p className="eyebrow text-primary">404 / Ruang tak ditemukan</p><h1 className="display mt-4 text-7xl sm:text-9xl">Jejaknya berhenti di sini.</h1><p className="mt-6 text-muted-foreground">Halaman mungkin telah berpindah atau koleksi sudah diarsipkan.</p><Link className={buttonVariants({ className: "mt-8 min-h-12", size: "lg" })} href="/">Kembali ke beranda</Link></div> }

@@ -1,0 +1,2 @@
+import { Skeleton } from "@/components/ui/skeleton"
+export default function Loading() { return <div className="mx-auto min-h-[80svh] max-w-[1500px] px-5 pb-24 pt-40"><Skeleton className="h-4 w-32" /><Skeleton className="mt-5 h-24 max-w-3xl" /><div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">{Array.from({length:8},(_,index) => <Skeleton className="aspect-[3/4]" key={index} />)}</div></div> }
