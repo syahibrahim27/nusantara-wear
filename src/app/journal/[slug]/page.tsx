@@ -6,6 +6,7 @@ import type { Metadata } from "next"
 import { formatDateID } from "@/lib/commerce"
 import { BLUR_PLACEHOLDER } from "@/server/services/catalog-service"
 import { getJournalPost, getRelatedJournalPosts } from "@/server/services/journal-service"
+import { appUrl as resolveAppUrl } from "@/lib/app-url"
 
 export const revalidate = 600
 
@@ -27,7 +28,7 @@ export default async function JournalPostPage({ params }: { params: Promise<{ sl
   if (!post) notFound()
 
   const related = await getRelatedJournalPosts(post.slug)
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+  const appUrl = resolveAppUrl()
   const structured = {
     "@context": "https://schema.org",
     "@type": "Article",

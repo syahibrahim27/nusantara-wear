@@ -6,9 +6,10 @@ import "./globals.css"
 import { SiteFooter } from "@/components/storefront/site-footer"
 import { SiteHeader } from "@/components/storefront/site-header"
 import { Toaster } from "@/components/ui/sonner"
+import { appUrl } from "@/lib/app-url"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(appUrl()),
   title: { default: "Nusantara Wear — Ruang baru untuk cerita yang berakar", template: "%s — Nusantara Wear" },
   description: "Fashion lokal kontemporer dalam potongan tenang, material jujur, dan cerita yang berakar.",
   openGraph: { title: "Nusantara Wear", description: "Ruang baru untuk cerita yang berakar.", images: ["/images/campaign-akar.png"], locale: "id_ID", type: "website" },

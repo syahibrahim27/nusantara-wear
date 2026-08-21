@@ -6,9 +6,10 @@ import { hash } from "bcryptjs"
 import { prisma } from "@/lib/db/prisma"
 import { DomainError } from "@/lib/http"
 import { emailProvider } from "@/lib/email"
+import { appUrl as appUrlBase } from "@/lib/app-url"
 
 const RESET_TTL_MINUTES = 30
-const appUrl = () => process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+const appUrl = () => appUrlBase()
 const digest = (token: string) => createHash("sha256").update(token).digest("hex")
 
 export async function registerCustomer(input: { name: string; email: string; password: string }) {

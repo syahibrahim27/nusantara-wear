@@ -7,6 +7,7 @@ import { formatDateID } from "@/lib/commerce"
 import { BLUR_PLACEHOLDER, getProductDetail, getRelatedProducts } from "@/server/services/catalog-service"
 import { ProductDetailClient } from "@/components/storefront/product-detail-client"
 import { ProductCard } from "@/components/storefront/product-card"
+import { appUrl as resolveAppUrl } from "@/lib/app-url"
 
 export const revalidate = 300
 
@@ -29,7 +30,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const related = await getRelatedProducts(product)
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+  const appUrl = resolveAppUrl()
   const inStock = product.variants.some((variant) => variant.available > 0)
   const structured = {
     "@context": "https://schema.org",

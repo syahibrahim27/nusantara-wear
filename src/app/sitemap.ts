@@ -2,10 +2,11 @@ import type { MetadataRoute } from "next"
 
 import { getActiveProductSlugs, getCollections } from "@/server/services/catalog-service"
 import { listPublishedJournalSlugs } from "@/server/services/journal-service"
+import { appUrl } from "@/lib/app-url"
 
 export const dynamic = "force-dynamic"
 
-const base = () => process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+const base = () => appUrl()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = base()

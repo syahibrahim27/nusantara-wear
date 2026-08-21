@@ -7,6 +7,7 @@ import { getBestSellers, getCategories, getCollections, getFeaturedProducts } fr
 import { ProductCard } from "@/components/storefront/product-card"
 import { BestSellerCarousel } from "@/components/storefront/best-seller-carousel"
 import { buttonVariants } from "@/components/ui/button"
+import { appUrl as resolveAppUrl } from "@/lib/app-url"
 
 export const revalidate = 300
 
@@ -32,7 +33,7 @@ export default async function HomePage() {
   ])
 
   const heroCollection = collections.find((collection) => collection.isFeatured) ?? collections[0]
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+  const appUrl = resolveAppUrl()
   const structured = {
     "@context": "https://schema.org",
     "@graph": [
